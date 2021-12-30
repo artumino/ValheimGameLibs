@@ -1,7 +1,7 @@
 @echo off 
 
 set toPublicize=Assembly-CSharp.dll assembly_valheim.dll assembly_utils.dll assembly_postprocessing.dll assembly_sunshafts.dll assembly_steamworks.dll assembly_simplemeshcombine.dll assembly_lux.dll assembly_guiutils.dll assembly_googleanalytics.dll
-set toIgnore=Mono.Security.dll mscorlib.dll System.Configuration.dll System.Core.dll System.dll System.Xml.dll
+set toIgnore=Mono.Security.dll mscorlib.dll
 
 set exePath=%1
 echo exePath: %exePath% 
@@ -30,5 +30,7 @@ set outPath=%~dp0\package\lib
 
   del /f "%outPath%\%%a"
 ))
+del /f "%outPath%\Unity*.dll"
+del /f "%outPath%\System*.dll"
 
 pause
